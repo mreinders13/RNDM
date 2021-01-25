@@ -7,25 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		929378DD25B5124B00448FF0 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929378DC25B5124B00448FF0 /* MainMenu.swift */; };
+		929378E925B679FA00448FF0 /* CreateTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929378E825B679FA00448FF0 /* CreateTV.swift */; };
+		9293790625BB539200448FF0 /* createSeasonTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293790525BB539200448FF0 /* createSeasonTVC.swift */; };
 		92B14F3A25AFE936002B54D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B14F3925AFE936002B54D4 /* AppDelegate.swift */; };
 		92B14F3C25AFE936002B54D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B14F3B25AFE936002B54D4 /* SceneDelegate.swift */; };
-		92B14F3E25AFE936002B54D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B14F3D25AFE936002B54D4 /* ViewController.swift */; };
+		92B14F3E25AFE936002B54D4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B14F3D25AFE936002B54D4 /* Login.swift */; };
 		92B14F4125AFE936002B54D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B14F3F25AFE936002B54D4 /* Main.storyboard */; };
 		92B14F4425AFE936002B54D4 /* RNDM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92B14F4225AFE936002B54D4 /* RNDM.xcdatamodeld */; };
 		92B14F4625AFE937002B54D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B14F4525AFE937002B54D4 /* Assets.xcassets */; };
 		92B14F4925AFE937002B54D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B14F4725AFE937002B54D4 /* LaunchScreen.storyboard */; };
+		92B14F5425AFEAED002B54D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B14F5325AFEAED002B54D4 /* CloudKit.framework */; };
+		92E47E9825BE25930063882A /* Decide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E47E9725BE25930063882A /* Decide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		929378DC25B5124B00448FF0 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		929378E825B679FA00448FF0 /* CreateTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTV.swift; sourceTree = "<group>"; };
+		9293790525BB539200448FF0 /* createSeasonTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = createSeasonTVC.swift; path = "RNDM/View Controllers/createSeasonTVC.swift"; sourceTree = SOURCE_ROOT; };
 		92B14F3625AFE936002B54D4 /* RNDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B14F3925AFE936002B54D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92B14F3B25AFE936002B54D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		92B14F3D25AFE936002B54D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92B14F3D25AFE936002B54D4 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		92B14F4025AFE936002B54D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92B14F4325AFE936002B54D4 /* RNDM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RNDM.xcdatamodel; sourceTree = "<group>"; };
 		92B14F4525AFE937002B54D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92B14F4825AFE937002B54D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92B14F4A25AFE937002B54D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92B14F5125AFE9D1002B54D4 /* RNDM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RNDM.entitlements; sourceTree = "<group>"; };
+		92B14F5325AFEAED002B54D4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		92E47E9725BE25930063882A /* Decide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +44,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92B14F5425AFEAED002B54D4 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		929378DF25B5125900448FF0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				92E47E9725BE25930063882A /* Decide.swift */,
+				92B14F3D25AFE936002B54D4 /* Login.swift */,
+				929378DC25B5124B00448FF0 /* MainMenu.swift */,
+				929378E825B679FA00448FF0 /* CreateTV.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		929378EC25B6887600448FF0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		929378F725B7AA7B00448FF0 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9293790525BB539200448FF0 /* createSeasonTVC.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		92B14F2D25AFE936002B54D4 = {
 			isa = PBXGroup;
 			children = (
 				92B14F3825AFE936002B54D4 /* RNDM */,
 				92B14F3725AFE936002B54D4 /* Products */,
+				92B14F5225AFEAED002B54D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,9 +97,12 @@
 		92B14F3825AFE936002B54D4 /* RNDM */ = {
 			isa = PBXGroup;
 			children = (
+				92B14F5125AFE9D1002B54D4 /* RNDM.entitlements */,
 				92B14F3925AFE936002B54D4 /* AppDelegate.swift */,
 				92B14F3B25AFE936002B54D4 /* SceneDelegate.swift */,
-				92B14F3D25AFE936002B54D4 /* ViewController.swift */,
+				929378EC25B6887600448FF0 /* Classes */,
+				929378DF25B5125900448FF0 /* View Controllers */,
+				929378F725B7AA7B00448FF0 /* Custom Cells */,
 				92B14F3F25AFE936002B54D4 /* Main.storyboard */,
 				92B14F4525AFE937002B54D4 /* Assets.xcassets */,
 				92B14F4725AFE937002B54D4 /* LaunchScreen.storyboard */,
@@ -68,6 +110,14 @@
 				92B14F4225AFE936002B54D4 /* RNDM.xcdatamodeld */,
 			);
 			path = RNDM;
+			sourceTree = "<group>";
+		};
+		92B14F5225AFEAED002B54D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92B14F5325AFEAED002B54D4 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +190,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92B14F3E25AFE936002B54D4 /* ViewController.swift in Sources */,
+				929378DD25B5124B00448FF0 /* MainMenu.swift in Sources */,
+				92B14F3E25AFE936002B54D4 /* Login.swift in Sources */,
 				92B14F3A25AFE936002B54D4 /* AppDelegate.swift in Sources */,
+				9293790625BB539200448FF0 /* createSeasonTVC.swift in Sources */,
+				929378E925B679FA00448FF0 /* CreateTV.swift in Sources */,
+				92E47E9825BE25930063882A /* Decide.swift in Sources */,
 				92B14F4425AFE936002B54D4 /* RNDM.xcdatamodeld in Sources */,
 				92B14F3C25AFE936002B54D4 /* SceneDelegate.swift in Sources */,
 			);
@@ -290,6 +344,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RNDM/RNDM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MPZ363GZHF;
 				INFOPLIST_FILE = RNDM/Info.plist;
@@ -309,6 +364,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RNDM/RNDM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MPZ363GZHF;
 				INFOPLIST_FILE = RNDM/Info.plist;

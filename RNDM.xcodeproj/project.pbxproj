@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9219312425C3A98C00D90A69 /* CreateMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9219312325C3A98C00D90A69 /* CreateMenu.swift */; };
+		9219312A25C3AE2900D90A69 /* DecideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9219312925C3AE2900D90A69 /* DecideMenu.swift */; };
+		9265314125C5BF3B00E582B5 /* CreateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265314025C5BF3B00E582B5 /* CreateList.swift */; };
+		9265314525C5C5EA00E582B5 /* standardListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265314425C5C5EA00E582B5 /* standardListTVC.swift */; };
+		9265314925C5CD0D00E582B5 /* DecideList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265314825C5CD0D00E582B5 /* DecideList.swift */; };
 		929378DD25B5124B00448FF0 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929378DC25B5124B00448FF0 /* MainMenu.swift */; };
 		929378E925B679FA00448FF0 /* CreateTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929378E825B679FA00448FF0 /* CreateTV.swift */; };
 		9293790625BB539200448FF0 /* createSeasonTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293790525BB539200448FF0 /* createSeasonTVC.swift */; };
@@ -18,10 +23,15 @@
 		92B14F4625AFE937002B54D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B14F4525AFE937002B54D4 /* Assets.xcassets */; };
 		92B14F4925AFE937002B54D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B14F4725AFE937002B54D4 /* LaunchScreen.storyboard */; };
 		92B14F5425AFEAED002B54D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B14F5325AFEAED002B54D4 /* CloudKit.framework */; };
-		92E47E9825BE25930063882A /* Decide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E47E9725BE25930063882A /* Decide.swift */; };
+		92E47E9825BE25930063882A /* DecideTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E47E9725BE25930063882A /* DecideTV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9219312325C3A98C00D90A69 /* CreateMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMenu.swift; sourceTree = "<group>"; };
+		9219312925C3AE2900D90A69 /* DecideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideMenu.swift; sourceTree = "<group>"; };
+		9265314025C5BF3B00E582B5 /* CreateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateList.swift; sourceTree = "<group>"; };
+		9265314425C5C5EA00E582B5 /* standardListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = standardListTVC.swift; sourceTree = "<group>"; };
+		9265314825C5CD0D00E582B5 /* DecideList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideList.swift; sourceTree = "<group>"; };
 		929378DC25B5124B00448FF0 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		929378E825B679FA00448FF0 /* CreateTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTV.swift; sourceTree = "<group>"; };
 		9293790525BB539200448FF0 /* createSeasonTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = createSeasonTVC.swift; path = "RNDM/View Controllers/createSeasonTVC.swift"; sourceTree = SOURCE_ROOT; };
@@ -36,7 +46,7 @@
 		92B14F4A25AFE937002B54D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B14F5125AFE9D1002B54D4 /* RNDM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RNDM.entitlements; sourceTree = "<group>"; };
 		92B14F5325AFEAED002B54D4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		92E47E9725BE25930063882A /* Decide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decide.swift; sourceTree = "<group>"; };
+		92E47E9725BE25930063882A /* DecideTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideTV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +64,14 @@
 		929378DF25B5125900448FF0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				92E47E9725BE25930063882A /* Decide.swift */,
+				9219312325C3A98C00D90A69 /* CreateMenu.swift */,
+				9265314025C5BF3B00E582B5 /* CreateList.swift */,
+				929378E825B679FA00448FF0 /* CreateTV.swift */,
+				9219312925C3AE2900D90A69 /* DecideMenu.swift */,
+				9265314825C5CD0D00E582B5 /* DecideList.swift */,
+				92E47E9725BE25930063882A /* DecideTV.swift */,
 				92B14F3D25AFE936002B54D4 /* Login.swift */,
 				929378DC25B5124B00448FF0 /* MainMenu.swift */,
-				929378E825B679FA00448FF0 /* CreateTV.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -72,6 +86,7 @@
 		929378F725B7AA7B00448FF0 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9265314425C5C5EA00E582B5 /* standardListTVC.swift */,
 				9293790525BB539200448FF0 /* createSeasonTVC.swift */,
 			);
 			path = "Custom Cells";
@@ -97,17 +112,17 @@
 		92B14F3825AFE936002B54D4 /* RNDM */ = {
 			isa = PBXGroup;
 			children = (
-				92B14F5125AFE9D1002B54D4 /* RNDM.entitlements */,
-				92B14F3925AFE936002B54D4 /* AppDelegate.swift */,
-				92B14F3B25AFE936002B54D4 /* SceneDelegate.swift */,
+				92B14F3F25AFE936002B54D4 /* Main.storyboard */,
 				929378EC25B6887600448FF0 /* Classes */,
 				929378DF25B5125900448FF0 /* View Controllers */,
 				929378F725B7AA7B00448FF0 /* Custom Cells */,
-				92B14F3F25AFE936002B54D4 /* Main.storyboard */,
-				92B14F4525AFE937002B54D4 /* Assets.xcassets */,
-				92B14F4725AFE937002B54D4 /* LaunchScreen.storyboard */,
 				92B14F4A25AFE937002B54D4 /* Info.plist */,
+				92B14F5125AFE9D1002B54D4 /* RNDM.entitlements */,
+				92B14F4525AFE937002B54D4 /* Assets.xcassets */,
 				92B14F4225AFE936002B54D4 /* RNDM.xcdatamodeld */,
+				92B14F3925AFE936002B54D4 /* AppDelegate.swift */,
+				92B14F3B25AFE936002B54D4 /* SceneDelegate.swift */,
+				92B14F4725AFE937002B54D4 /* LaunchScreen.storyboard */,
 			);
 			path = RNDM;
 			sourceTree = "<group>";
@@ -192,11 +207,16 @@
 			files = (
 				929378DD25B5124B00448FF0 /* MainMenu.swift in Sources */,
 				92B14F3E25AFE936002B54D4 /* Login.swift in Sources */,
+				9265314125C5BF3B00E582B5 /* CreateList.swift in Sources */,
 				92B14F3A25AFE936002B54D4 /* AppDelegate.swift in Sources */,
 				9293790625BB539200448FF0 /* createSeasonTVC.swift in Sources */,
 				929378E925B679FA00448FF0 /* CreateTV.swift in Sources */,
-				92E47E9825BE25930063882A /* Decide.swift in Sources */,
+				92E47E9825BE25930063882A /* DecideTV.swift in Sources */,
 				92B14F4425AFE936002B54D4 /* RNDM.xcdatamodeld in Sources */,
+				9219312425C3A98C00D90A69 /* CreateMenu.swift in Sources */,
+				9219312A25C3AE2900D90A69 /* DecideMenu.swift in Sources */,
+				9265314925C5CD0D00E582B5 /* DecideList.swift in Sources */,
+				9265314525C5C5EA00E582B5 /* standardListTVC.swift in Sources */,
 				92B14F3C25AFE936002B54D4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

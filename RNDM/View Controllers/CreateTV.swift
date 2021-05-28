@@ -193,7 +193,7 @@ class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate {
     func clearAndUnwind() {
         // Clear the global array
         createSeriesArray = []
-        // unwind to MainMenu
+        // unwind to Main Menu
         self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
     }
     

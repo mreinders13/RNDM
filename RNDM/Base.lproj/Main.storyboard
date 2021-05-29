@@ -199,6 +199,18 @@
                                     <segue destination="Quc-nr-HOc" kind="show" id="bzL-49-4eT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4a-ub-Grn">
+                                <rect key="frame" x="20" y="548" width="374" height="100"/>
+                                <color key="backgroundColor" red="0.36862745099999999" green="0.1764705882" blue="0.47450980390000003" alpha="0.68149622229999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="KSS-O3-Tpi"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="qrY-vj-qb2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="coming aoon">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pix-fO-2hX">
                                 <rect key="frame" x="147" y="163" width="120" height="17.5"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="17"/>
@@ -219,14 +231,33 @@
                                     <segue destination="McT-TV-XTc" kind="show" id="cpr-Pb-PTV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhx-1V-pcJ">
+                                <rect key="frame" x="20" y="680" width="374" height="100"/>
+                                <color key="backgroundColor" red="0.36862745099999999" green="0.1764705882" blue="0.47450980390000003" alpha="0.68149622229999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Jhi-Z5-hhn"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="d1e-Xs-xUy"/>
+                                    <constraint firstAttribute="height" constant="100" id="kYP-JA-hBY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="coming aoon">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fl6-mx-Y0P"/>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.1019607843" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="P31-lK-Q6S" firstAttribute="top" secondItem="Fl6-mx-Y0P" secondAttribute="top" constant="61" id="8zM-ze-Tc3"/>
+                            <constraint firstItem="i4a-ub-Grn" firstAttribute="top" secondItem="cRX-DJ-qKL" secondAttribute="bottom" constant="50" id="9zY-Zx-oX8"/>
                             <constraint firstItem="rSI-xh-twF" firstAttribute="leading" secondItem="Fl6-mx-Y0P" secondAttribute="leading" constant="20" id="Bci-wk-jPD"/>
+                            <constraint firstItem="Fl6-mx-Y0P" firstAttribute="trailing" secondItem="Rhx-1V-pcJ" secondAttribute="trailing" constant="20" id="DSw-PQ-ka4"/>
                             <constraint firstItem="rSI-xh-twF" firstAttribute="top" secondItem="Pix-fO-2hX" secondAttribute="bottom" constant="71.5" id="JEd-4o-nDs"/>
+                            <constraint firstItem="i4a-ub-Grn" firstAttribute="leading" secondItem="Fl6-mx-Y0P" secondAttribute="leading" constant="20" id="PBK-Sf-3qV"/>
                             <constraint firstItem="Fl6-mx-Y0P" firstAttribute="trailing" secondItem="cRX-DJ-qKL" secondAttribute="trailing" constant="20" id="PUF-3J-91J"/>
+                            <constraint firstItem="Fl6-mx-Y0P" firstAttribute="trailing" secondItem="i4a-ub-Grn" secondAttribute="trailing" constant="20" id="Qre-Wq-GYQ"/>
+                            <constraint firstItem="Rhx-1V-pcJ" firstAttribute="leading" secondItem="Fl6-mx-Y0P" secondAttribute="leading" constant="20" id="X2S-6c-a6m"/>
+                            <constraint firstItem="Rhx-1V-pcJ" firstAttribute="top" secondItem="i4a-ub-Grn" secondAttribute="bottom" constant="32" id="Xgq-XS-EAg"/>
                             <constraint firstItem="Fl6-mx-Y0P" firstAttribute="trailing" secondItem="rSI-xh-twF" secondAttribute="trailing" constant="20" id="Zzw-Tb-gbo"/>
                             <constraint firstItem="cRX-DJ-qKL" firstAttribute="leading" secondItem="Fl6-mx-Y0P" secondAttribute="leading" constant="20" id="jk1-NZ-Mcj"/>
                             <constraint firstItem="cRX-DJ-qKL" firstAttribute="top" secondItem="rSI-xh-twF" secondAttribute="bottom" constant="46" id="rxq-Xo-hfQ"/>
@@ -581,12 +612,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0O-8J-fUW">
-                                <rect key="frame" x="147" y="152" width="120" height="17.5"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYt-c8-yda">
                                 <rect key="frame" x="20" y="242" width="374" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -601,20 +626,52 @@
                                     <segue destination="iz4-nQ-YHd" kind="show" id="VbU-Hv-jbU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0O-8J-fUW">
+                                <rect key="frame" x="147" y="152" width="120" height="17.5"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPB-E3-cds">
+                                <rect key="frame" x="20" y="545" width="374" height="100"/>
+                                <color key="backgroundColor" red="0.36862745099999999" green="0.1764705882" blue="0.47450980390000003" alpha="0.68149622229999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BJe-Pf-eXm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="coming soon">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig3-4p-ji8">
+                                <rect key="frame" x="20" y="679" width="374" height="100"/>
+                                <color key="backgroundColor" red="0.36862745099999999" green="0.1764705882" blue="0.47450980390000003" alpha="0.68149622229999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="V6P-6u-I6f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="coming soon">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dvy-pd-uZx"/>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.1019607843" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Lsh-tT-62c" firstAttribute="top" secondItem="uYt-c8-yda" secondAttribute="bottom" constant="56" id="14A-FN-gdg"/>
+                            <constraint firstItem="cPB-E3-cds" firstAttribute="leading" secondItem="dvy-pd-uZx" secondAttribute="leading" constant="20" id="6GH-h1-J1P"/>
                             <constraint firstItem="uYt-c8-yda" firstAttribute="leading" secondItem="dvy-pd-uZx" secondAttribute="leading" constant="20" id="8A8-hh-EFZ"/>
                             <constraint firstItem="dvy-pd-uZx" firstAttribute="trailing" secondItem="Lsh-tT-62c" secondAttribute="trailing" constant="20" id="EJs-Oz-dEn"/>
+                            <constraint firstItem="Ig3-4p-ji8" firstAttribute="top" secondItem="cPB-E3-cds" secondAttribute="bottom" constant="34" id="JFh-Gg-DOh"/>
                             <constraint firstItem="dvy-pd-uZx" firstAttribute="trailing" secondItem="uYt-c8-yda" secondAttribute="trailing" constant="20" id="JRS-l1-eQ3"/>
+                            <constraint firstItem="dvy-pd-uZx" firstAttribute="trailing" secondItem="cPB-E3-cds" secondAttribute="trailing" constant="20" id="K08-1V-pmE"/>
                             <constraint firstItem="O0O-8J-fUW" firstAttribute="top" secondItem="2dH-a9-tY2" secondAttribute="bottom" constant="7.5" id="SUU-xH-O2z"/>
                             <constraint firstItem="2dH-a9-tY2" firstAttribute="top" secondItem="dvy-pd-uZx" secondAttribute="top" constant="50" id="Uav-Gt-hh5"/>
                             <constraint firstItem="O0O-8J-fUW" firstAttribute="top" secondItem="2dH-a9-tY2" secondAttribute="bottom" constant="7.5" id="bEc-iJ-2OK"/>
                             <constraint firstItem="uYt-c8-yda" firstAttribute="top" secondItem="O0O-8J-fUW" secondAttribute="bottom" constant="72.5" id="bjV-Dh-bV7"/>
                             <constraint firstItem="2dH-a9-tY2" firstAttribute="centerX" secondItem="XQ8-dC-zIE" secondAttribute="centerX" id="pUX-uH-chQ"/>
                             <constraint firstItem="O0O-8J-fUW" firstAttribute="centerX" secondItem="2dH-a9-tY2" secondAttribute="centerX" id="sFN-kR-4of"/>
+                            <constraint firstItem="cPB-E3-cds" firstAttribute="top" secondItem="Lsh-tT-62c" secondAttribute="bottom" constant="47" id="t9h-N3-Ycu"/>
                             <constraint firstItem="Lsh-tT-62c" firstAttribute="leading" secondItem="dvy-pd-uZx" secondAttribute="leading" constant="20" id="vzV-kE-qPL"/>
                         </constraints>
                     </view>

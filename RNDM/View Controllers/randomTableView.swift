@@ -12,7 +12,8 @@ var savedTV: Array<Series> = []
 
 class randomTableView: UIViewController, UITableViewDataSource {
     
-    func reloadList() {
+    @objc func reloadRandomTableView(notification: NSNotification) {
+        tableView.dataSource = self
         tableView.reloadData()
     }
     
@@ -93,6 +94,8 @@ class randomTableView: UIViewController, UITableViewDataSource {
         loadLocalData()
         // buildTableViewReferenceData()
         tableView.dataSource = self
+        // listener for search refresh
+        NotificationCenter.default.addObserver(self, selector:#selector(reloadRandomTableView), name:NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil)
     }
 
 }

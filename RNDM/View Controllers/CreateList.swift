@@ -93,6 +93,8 @@ class CreateList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
               UserDefaults.standard.set(encoded, forKey: "Standard-Lists-Array")
               // clear listArray
               listArray = []
+              // reload tqbleview
+              NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil)
               // Successful - Dismiss VC
               self.dismiss(animated: true, completion: nil)
           }

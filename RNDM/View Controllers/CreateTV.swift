@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
 
 // Global Var for createSeriesArray
 var createSeriesArray: Array<Int> = []
@@ -40,13 +41,14 @@ struct Episode: Codable {
     var runTime: String?
     var airDate: String?
 }
-class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate {
+class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate, GADFullScreenContentDelegate {
     // UI Outlets
     @IBOutlet weak var txtSeriesName: UITextField!
     
     @IBOutlet weak var txtNumbnerOfSeasons: UITextField!
     
-
+    // AdMob
+    var interstitial: GADInterstitialAd?
     
     // MARK: Create TableView
     @IBOutlet weak var tableView: UITableView!
@@ -85,15 +87,52 @@ class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         // Conform to textField
         self.txtSeriesName.delegate = self
         
         // Conform to TableView
         //tableView.delegate = self
         tableView.dataSource = self
+        
+        // setup GoogleAdMob
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request, completionHandler: {ad, error in
+            if let err = error {
+                print("Failed to load interstitial ad with error: " + err.localizedDescription)
+            }
+            if let a = ad {
+                self.interstitial = ad
+                self.interstitial?.fullScreenContentDelegate = self
+            }
+            
+        })
 
     }
+    /// Tells the delegate that the ad failed to present full screen content.
+      func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content.")
+      }
+
+      /// Tells the delegate that the ad presented full screen content.
+      func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did present full screen content.")
+      }
+
+      /// Tells the delegate that the ad dismissed full screen content.
+      func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did dismiss full screen content.")
+          // Save List
+          if let encoded = try? JSONEncoder().encode(savedTV) {
+              UserDefaults.standard.set(encoded, forKey: "TV-Series-Array")
+              // clear listArray
+              createSeriesArray = []
+              // reload tqbleview
+              NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil)
+              // Successful - Dismiss VC
+              self.dismiss(animated: true, completion: nil)
+          }
+      }
+
     
     // MARK: Click Events
     @IBAction func createSeries(_ sender: Any) {
@@ -141,15 +180,9 @@ class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate {
         if let seriesName = txtSeriesName.text {
             let tvSeries = Series.init(title: seriesName, seasonsCount: seasons.count, totalEpisodes: totalEpisodeCount, seasons: seasons)
             savedTV.append(tvSeries)
-            // Save the Series
-            if let encoded = try? JSONEncoder().encode(savedTV) {
-                UserDefaults.standard.set(encoded, forKey: "TV-Series-Array")
-                
-                // Successful - dismiss vc
-                self.dismiss(animated: true, completion: nil)
-            
-            } else {
-                print("Error Saving TV Series: Could NOT Encode TV-Series")
+            // load interstital ad
+            if interstitial != nil {
+                interstitial?.present(fromRootViewController: self)
             }
         }
         

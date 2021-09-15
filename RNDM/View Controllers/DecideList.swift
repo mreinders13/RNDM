@@ -10,46 +10,57 @@ import UIKit
 
 class DecideList: UIViewController {
     // outlets
-    @IBOutlet weak var lblListTitle: UILabel!
-    @IBOutlet weak var lblListResult: UILabel!
+    @IBOutlet weak var lblObjectTitle: UILabel!
+    @IBOutlet weak var lblObjectResult: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let currentList = loadList()
-        lblListTitle.text = currentList.title
+        if let series = TVObject {
+            lblObjectTitle.text = series.title.description
+            getRandomEpisode(tvSeries: series)
+        } else if let RNDMlist = ListObject {
+            lblObjectTitle.text = RNDMlist.title.description
+            getRandomItem(list: RNDMlist)
+        } else {
+            // shit happens
+        }
+        //let currentList = loadList()
+        //lblListTitle.text = currentList.title
         // Do any additional setup after loading the view.
     }
     
-    // Load stored list from Defaults
-    func loadList() -> standardList {
-        //Retrieving Series
-        let list: standardList?
-        do {
-            let storedObjItem = UserDefaults.standard.object(forKey: "Standard-Lists-Array")
-            let storedList = try JSONDecoder().decode(standardList.self, from: storedObjItem as! Data)
-            //print("Retrieved items: \(storedItems)")
-             list = storedList
-        } catch let err {
-            print(err)
-            list = nil
-        }
-        return list!
-    }
-    
+    // MARK: RNDM LIST ITEM
     func getRandomItem(list:standardList) {
         if list != nil {
             let result = Int.random(in: 0..<list.items.count)
             DispatchQueue.main.async {
-                self.lblListResult.text = list.items[result]
+                self.lblObjectResult.text = list.items[result]
             }
         } else {
             print("Error decoding standardList")
         }
     }
+    // MARK: RNDM TV SERIES
+    func getRandomEpisode(tvSeries:Series) {
+        // Try Loading Series
+        if tvSeries != nil {
+            // get random season
+            let season = Int.random(in: 1..<tvSeries.seasonsCount)
+            // get random episode
+            let episode = Int.random(in: 1..<tvSeries.seasons[season].episodeCount)
+            // set Labels
+            DispatchQueue.main.async {
+                self.lblObjectResult.text = "Season " + String(season) + ": Episode " + String(episode)
+            }
+        } else {
+            print("Error decoding TV Series")
+        }
+        
+    }
     
     @IBAction func btnRNDM(_ sender: Any) {
-        getRandomItem(list: loadList())
+        //getRandomItem(list: loadList())
     }
     
     @IBAction func btnBack(_ sender: Any) {

@@ -40,8 +40,8 @@ class randomTableView: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "randomCell") as! randomCell
         switch typeSwitch.selectedSegmentIndex {
-        case 1: cell.setCell(name: savedTV[indexPath.row].title)
-        default: cell.setCell(name: savedLists[indexPath.row].title)
+        case 1: cell.setCell(name: savedTV[indexPath.row].title,type:"TV",index:indexPath.row)
+        default: cell.setCell(name: savedLists[indexPath.row].title,type:"List",index:indexPath.row)
         }
         
         return cell

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 var savedLists: Array<standardList> = []
 var savedTV: Array<Series> = []
@@ -13,6 +14,7 @@ var savedTV: Array<Series> = []
 class randomTableView: UIViewController, UITableViewDataSource {
     
     @objc func reloadRandomTableView(notification: NSNotification) {
+        loadLocalData()
         tableView.dataSource = self
         tableView.reloadData()
     }
@@ -25,8 +27,6 @@ class randomTableView: UIViewController, UITableViewDataSource {
     }
     // MARK: TableView Setup
     @IBOutlet weak var tableView: UITableView!
-    
-    //var tableViewData = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
@@ -43,7 +43,6 @@ class randomTableView: UIViewController, UITableViewDataSource {
         case 1: cell.setCell(name: savedTV[indexPath.row].title,type:"TV",index:indexPath.row)
         default: cell.setCell(name: savedLists[indexPath.row].title,type:"List",index:indexPath.row)
         }
-        
         return cell
     }
     
@@ -90,12 +89,22 @@ class randomTableView: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        loadLocalData()
-        // buildTableViewReferenceData()
-        tableView.dataSource = self
-        // listener for search refresh
-        NotificationCenter.default.addObserver(self, selector:#selector(reloadRandomTableView), name:NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil)
-    }
 
+        // MARK: Privacy Stuff
+        if let p = UserDefaults.standard.value(forKey: "PolicyAccept") {
+            if p as! Bool == true {
+                // Policy was accepted, done
+                loadLocalData()
+                tableView.dataSource = self
+            } else {
+                exit(0)
+            }
+        } else {
+            //self.performSegue(withIdentifier: "PrivacyPolicy", sender: nil)
+            self.present((self.storyboard?.instantiateViewController(withIdentifier: "PrivacyPolicy"))!, animated: true, completion: nil)
+        }
+
+        // listener for search refresh
+        NotificationCenter.default.addObserver(self, selector:#selector(reloadRandomTableView), name:NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil) 
+    }
 }

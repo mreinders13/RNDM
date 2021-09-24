@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 var TVObject: Series?
 var ListObject: standardList?
@@ -26,10 +27,15 @@ class randomCell: UITableViewCell {
     func setCell(name:String, type:String, index:Int) {
         randomObjectType = type
         objectIndex = index
-        let list = UIImage(named: "list.bullet")
-        let tv = UIImage(named: "tv")
+        if randomObjectType == "List" {
+            randomType.image = UIImage(named: "list.bullet")
+        }
+        if randomObjectType == "TV" {
+            randomType.image = UIImage(named: "tv")
+            
+        }
         self.lblTitle.text = name
-
+        
     }
     
     @IBAction func btnRNDM(_ sender: Any) {

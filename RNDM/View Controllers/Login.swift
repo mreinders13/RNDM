@@ -44,6 +44,7 @@ class Login: UIViewController {
         }
     }
     
+    
     func setupSOAppleSignIn() {
         let btnAuthorization = ASAuthorizationAppleIDButton()
         btnAuthorization.frame = CGRect(x: 0, y: 0, width: 200, height: 40)

@@ -63,6 +63,7 @@ class CreateList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         // setup GoogleAdMob
         let request = GADRequest()
+        let intAdID = "ca-app-pub-9005398148958740/3951621321"
         GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request, completionHandler: {ad, error in
             if let err = error {
                 print("Failed to load interstitial ad with error: " + err.localizedDescription)
@@ -93,7 +94,7 @@ class CreateList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
               UserDefaults.standard.set(encoded, forKey: "Standard-Lists-Array")
               // clear listArray
               listArray = []
-              // reload tqbleview
+              // reload tableview
               NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil)
               // Successful - Dismiss VC
               self.dismiss(animated: true, completion: nil)

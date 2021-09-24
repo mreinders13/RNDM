@@ -30,12 +30,12 @@ class DecideList: UIViewController, GADFullScreenContentDelegate {
         // prepare GoogleAdMob
         let request = GADRequest()
         let intAdID = "ca-app-pub-9005398148958740/3951621321"
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request, completionHandler: {ad, error in
+        GADInterstitialAd.load(withAdUnitID: intAdID, request: request, completionHandler: {ad, error in
             if let err = error {
                 print("Failed to load interstitial ad with error: " + err.localizedDescription)
             }
             if let a = ad {
-                self.interstitial = ad
+                self.interstitial = a
                 self.interstitial?.fullScreenContentDelegate = self
             }
         })

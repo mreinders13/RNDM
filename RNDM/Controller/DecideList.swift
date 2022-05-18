@@ -8,6 +8,8 @@
 import UIKit
 import GoogleMobileAds
 
+let AdMobInterstitialTestID = "ca-app-pub-3940256099942544/4411468910"
+
 class DecideList: UIViewController, GADFullScreenContentDelegate {
     // AdMob
     var interstitial: GADInterstitialAd?
@@ -42,33 +44,27 @@ class DecideList: UIViewController, GADFullScreenContentDelegate {
     }
     
     // MARK: RNDM LIST ITEM
-    func getRandomItem(list:standardList) {
-        let result = Int.random(in: 0..<list.items.count)
-        if list.items[result] == lastListResult {
-            getRandomItem(list: list)
+    func setRandomListItem(list:standardList) {
+        let random = list.items.randomElement()
+        if random == lastListResult && list.items.count > 1 {
+            setRandomListItem(list: list)
         } else {
-            lastListResult = list.items[result]
+            lastListResult = random!
             DispatchQueue.main.async {
-                self.lblObjectResult.text = list.items[result]
+                self.lblObjectResult.text = random
             }
         }
 
     }
     // MARK: RNDM TV SERIES
-    func getRandomEpisode(tvSeries:Series) {
-        // get random season
-        let season = Int.random(in: 1..<tvSeries.seasonsCount)
-        // get random episode
-        let episode = Int.random(in: 1..<tvSeries.seasons[season].episodeCount)
-        // ensure no duplicate
-        if season == lastSeason && episode == lastEpisode {
-            getRandomEpisode(tvSeries: tvSeries)
+    func setRandomEpisode(randomEpisode:RandomEpisode) {
+        if randomEpisode.season == lastSeason && randomEpisode.episode == lastEpisode {
+            setRandomEpisode(randomEpisode: (TVObject?.getRandomEpisode())!)
         } else {
-            // set variables
-            lastSeason = season
-            lastEpisode = episode
+            lastSeason = randomEpisode.season
+            lastEpisode = randomEpisode.episode
             DispatchQueue.main.async {
-                self.lblObjectResult.text = "Season " + String(season) + ": Episode " + String(episode)
+                self.lblObjectResult.text = "Season " + String(randomEpisode.season) + ": Episode " + String(randomEpisode.episode)
             }
         }
     }
@@ -76,12 +72,12 @@ class DecideList: UIViewController, GADFullScreenContentDelegate {
     func randomize() {
         if let series = TVObject {
             lblObjectTitle.text = series.title.description
-            getRandomEpisode(tvSeries: series)
+            setRandomEpisode(randomEpisode: (TVObject?.getRandomEpisode())!)
         } else if let RNDMlist = ListObject {
             lblObjectTitle.text = RNDMlist.title.description
-            getRandomItem(list: RNDMlist)
+            setRandomListItem(list: RNDMlist)
         } else {
-            // shit happens
+            // error
         }
     }
     
@@ -89,6 +85,13 @@ class DecideList: UIViewController, GADFullScreenContentDelegate {
         // load interstital ad
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
+        } else {
+            let alert = UIAlertController(title: "No Ads", message: "No Ad was loaded from the server, Enjoy the freebie!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in
+                self.prepAd()
+                self.randomize()
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
         // randomize() <-put that in adDidShow
     }

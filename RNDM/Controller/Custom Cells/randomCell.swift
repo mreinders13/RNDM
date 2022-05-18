@@ -19,11 +19,6 @@ class randomCell: UITableViewCell {
     var randomObjectType: String?
     var objectIndex: Int?
     
-    override func awakeFromNib() {
-            super.awakeFromNib()
-            // Initialization code
-    }
-    
     func setCell(name:String, type:String, index:Int) {
         randomObjectType = type
         objectIndex = index
@@ -51,17 +46,4 @@ class randomCell: UITableViewCell {
         
     }
     
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-        if randomObjectType == "TV" {
-            // open edit/rndm view with TV object
-            //performSegue(withIdentifier: "addObjectSegue", sender: <#T##Any?#>)
-        } else {
-            // open edit/rndm view with List Object
-        }
-    }
-
 }

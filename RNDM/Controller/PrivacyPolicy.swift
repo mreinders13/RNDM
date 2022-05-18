@@ -35,7 +35,8 @@ class PrivacyPolicy: UIViewController {
     @IBAction func btnDeny(_ sender: Any) {
         // delete policy default and crash
         UserDefaults.standard.removeObject(forKey: "PolicyAccept")
-        exit(0)
+        let closeAlert = UIAlertController(title: "Close Application", message: "In order to use the App you must accept the Privacy Policy. Please close the application.", preferredStyle: .alert)
+        present(closeAlert, animated: true, completion: nil)
     }
     
     

@@ -9,60 +9,35 @@ import Foundation
 import UIKit
 import GoogleMobileAds
 
-// Global Var for createSeriesArray
-var createSeriesArray: Array<Int> = []
-
-// Global Structs for TV Series
-struct Series: Codable {
-    var title: String
-    var seasonsCount: Int
-    var totalEpisodes: Int
-    var seasons: Array<Season>
-    var plot: String?
-    var image: URL?
-    var premiere: Int?
-    var finale: Int?
-}
-
-struct Season: Codable {
-    var number: Int
-    var episodeCount: Int
-    var episodes: Array<Episode>
-    var title: String?
-    var year: String?
-    var summary: String?
-}
-
-struct Episode: Codable {
-    var number: Int
-    var title: String?
-    var summary: String?
-    var image: URL?
-    var runTime: String?
-    var airDate: String?
-}
-class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate, GADFullScreenContentDelegate {
+class CreateTV: UIViewController, UITableViewDataSource, UITextFieldDelegate, GADFullScreenContentDelegate, UpdateEpisodesDelegate {
+    
+    func updateEpisodeForSeason(season: Int, episodes: Int) {
+        tvSeriesBrain.editEpisodeCount(season: season, episodes: episodes)
+    }
+    
+    // AdMob
+    var interstitial: GADInterstitialAd?
     // UI Outlets
     @IBOutlet weak var txtSeriesName: UITextField!
     
     @IBOutlet weak var txtNumbnerOfSeasons: UITextField!
     
-    // AdMob
-    var interstitial: GADInterstitialAd?
+    var tvSeriesBrain = TvSeriesBrain()
     
     // MARK: Create TableView
     @IBOutlet weak var tableView: UITableView!
     
     // TableView Setup - # Rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return createSeriesArray.count
+        return tvSeriesBrain.createSeriesArray.count
     }
     // TableView Setup - Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if createSeriesArray != [] {
+        if tvSeriesBrain.createSeriesArray != [] {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "createSeason") as? createSeasonTVC {
                 // set cell
-                cell.setCell(season: indexPath.row, episodes: createSeriesArray[indexPath.row])
+                cell.delegate = self
+                cell.setCell(season: indexPath.row, episodes: tvSeriesBrain.createSeriesArray[indexPath.row])
                 return cell
             }
             return UITableViewCell()
@@ -85,13 +60,7 @@ class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate, GADF
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        // Conform to textField
-        self.txtSeriesName.delegate = self
-        
-        // Conform to TableView
-        //tableView.delegate = self
+        txtSeriesName.delegate = self
         tableView.dataSource = self
         
         // setup GoogleAdMob
@@ -125,7 +94,7 @@ class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate, GADF
           if let encoded = try? JSONEncoder().encode(savedTV) {
               UserDefaults.standard.set(encoded, forKey: "TV-Series-Array")
               // clear listArray
-              createSeriesArray = []
+              tvSeriesBrain.createSeriesArray = []
               // reload tqbleview
               NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil)
               // Successful - Dismiss VC
@@ -137,15 +106,8 @@ class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate, GADF
     // MARK: Click Events
     @IBAction func createSeries(_ sender: Any) {
         // apply series name and season number to create classes
-        if txtNumbnerOfSeasons != nil  {
-            // ensure start with fresh array
-            createSeriesArray = []
-            // setup table with params
-            let seasons = Int(txtNumbnerOfSeasons.text!)
-            for _ in 0..<seasons! {
-                createSeriesArray.append(1)
-            }
-            print(createSeriesArray)
+        if let seasons = txtNumbnerOfSeasons.text {
+            tvSeriesBrain.createSeriesFromSeasons(seasons: Int(seasons)!)
             tableView.reloadData()
         } else {
             print("Error: Seasons not provided")
@@ -155,35 +117,14 @@ class Create: UIViewController, UITableViewDataSource, UITextFieldDelegate, GADF
     @IBAction func saveSeries(_ sender: Any) {
         // Save series to CK
         print(txtSeriesName.text! + ": ")
-        print(createSeriesArray)
-        
-        
-        // create seasons + episodes- loop
-        var seasons: Array<Season> = []
-        let seasonsCount = createSeriesArray.count
-        var totalEpisodeCount = 0
-        for season in 0..<seasonsCount {
-            var episodes: Array<Episode> = []
-            for episode in 0..<createSeriesArray[season] {
-                // init the episode and add one to offset array starting at zero
-                let e = Episode.init(number: episode + 1)
-                episodes.append(e)
-                // increment totalepisodecount
-                totalEpisodeCount += 1
-            }
-            print("Season " + String(season + 1))
-            let s = Season.init(number: season + 1, episodeCount: episodes.count, episodes: episodes)
-            seasons.append(s)
+        print(tvSeriesBrain.createSeriesArray)
+        if let name = txtSeriesName.text {
+            tvSeriesBrain.saveSeries(name: name)
         }
-        
-        // create and save to Defaults
-        if let seriesName = txtSeriesName.text {
-            let tvSeries = Series.init(title: seriesName, seasonsCount: seasons.count, totalEpisodes: totalEpisodeCount, seasons: seasons)
-            savedTV.append(tvSeries)
-            // load interstital ad
-            if interstitial != nil {
-                interstitial?.present(fromRootViewController: self)
-            }
+
+        // load interstital ad
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
         }
         
     }

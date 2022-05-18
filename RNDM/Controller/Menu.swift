@@ -1,6 +1,6 @@
 //
-//  randomTableView.swift
-//  randomTableView
+//  menu.swift
+//  Menu View Controller
 //
 //  Created by Michael Reinders on 9/11/21.
 //
@@ -11,7 +11,7 @@ import GoogleMobileAds
 var savedLists: Array<standardList> = []
 var savedTV: Array<Series> = []
 
-class randomTableView: UIViewController, UITableViewDataSource {
+class Menu: UIViewController, UITableViewDataSource {
     
     @objc func reloadRandomTableView(notification: NSNotification) {
         loadLocalData()
@@ -59,7 +59,7 @@ class randomTableView: UIViewController, UITableViewDataSource {
                     if let encoded = try? JSONEncoder().encode(savedTV) {
                         UserDefaults.standard.set(encoded, forKey: "TV-Series-Array")
                     }
-                default: print("Switcher seelcted index fucked up")
+                default: print("Switcher seelcted index error")
                 }
                 tableView.reloadData()
             }
@@ -90,19 +90,8 @@ class randomTableView: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: Privacy Stuff
-        if let p = UserDefaults.standard.value(forKey: "PolicyAccept") {
-            if p as! Bool == true {
-                // Policy was accepted, done
-                loadLocalData()
-                tableView.dataSource = self
-            } else {
-                exit(0)
-            }
-        } else {
-            //self.performSegue(withIdentifier: "PrivacyPolicy", sender: nil)
-            self.present((self.storyboard?.instantiateViewController(withIdentifier: "PrivacyPolicy"))!, animated: true, completion: nil)
-        }
+        loadLocalData()
+        tableView.dataSource = self
 
         // listener for search refresh
         NotificationCenter.default.addObserver(self, selector:#selector(reloadRandomTableView), name:NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil) 

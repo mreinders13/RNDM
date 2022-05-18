@@ -14,6 +14,7 @@
 		9265314925C5CD0D00E582B5 /* DecideList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265314825C5CD0D00E582B5 /* DecideList.swift */; };
 		929378E925B679FA00448FF0 /* CreateTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929378E825B679FA00448FF0 /* CreateTV.swift */; };
 		9295D5E9283564FA00468EDE /* ListBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295D5E8283564FA00468EDE /* ListBrain.swift */; };
+		9295D5F12835A34600468EDE /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295D5F02835A34600468EDE /* Entry.swift */; };
 		92B14F3A25AFE936002B54D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B14F3925AFE936002B54D4 /* AppDelegate.swift */; };
 		92B14F3C25AFE936002B54D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B14F3B25AFE936002B54D4 /* SceneDelegate.swift */; };
 		92B14F4125AFE936002B54D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B14F3F25AFE936002B54D4 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		9265314825C5CD0D00E582B5 /* DecideList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideList.swift; sourceTree = "<group>"; };
 		929378E825B679FA00448FF0 /* CreateTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTV.swift; sourceTree = "<group>"; };
 		9295D5E8283564FA00468EDE /* ListBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBrain.swift; sourceTree = "<group>"; };
+		9295D5F02835A34600468EDE /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		92B14F3625AFE936002B54D4 /* RNDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B14F3925AFE936002B54D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92B14F3B25AFE936002B54D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,11 +71,12 @@
 		929378DF25B5125900448FF0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9295D5F02835A34600468EDE /* Entry.swift */,
+				9238F1F926ED855C000996D1 /* Menu.swift */,
 				9265314025C5BF3B00E582B5 /* CreateList.swift */,
 				929378E825B679FA00448FF0 /* CreateTV.swift */,
 				9265314825C5CD0D00E582B5 /* DecideList.swift */,
 				92DF7A7326FD3C6B00CAC575 /* PrivacyPolicy.swift */,
-				9238F1F926ED855C000996D1 /* Menu.swift */,
 				929378F725B7AA7B00448FF0 /* Custom Cells */,
 			);
 			path = Controller;
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9295D5F12835A34600468EDE /* Entry.swift in Sources */,
 				9238F1FA26ED855C000996D1 /* Menu.swift in Sources */,
 				9265314125C5BF3B00E582B5 /* CreateList.swift in Sources */,
 				92B14F3A25AFE936002B54D4 /* AppDelegate.swift in Sources */,
@@ -442,7 +446,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.92;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michael-reinders.RNDM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -465,7 +469,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.92;
+				MARKETING_VERSION = 2.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michael-reinders.RNDM";
 				PRODUCT_NAME = "$(TARGET_NAME)";

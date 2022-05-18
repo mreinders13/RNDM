@@ -24,6 +24,8 @@
 	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>We serve ads to users to keep the app running. Accept to receive personal ads, or deny to limit tracking. </string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

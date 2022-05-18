@@ -20,6 +20,16 @@ class Menu: UIViewController, UITableViewDataSource {
     }
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadLocalData()
+        tableView.dataSource = self
+
+        // listener for search refresh
+        NotificationCenter.default.addObserver(self, selector:#selector(reloadRandomTableView), name:NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil)
+    }
+    
+    
     @IBOutlet weak var typeSwitch: UISegmentedControl!
     
     @IBAction func typeSwitcherAction(_ sender: Any) {
@@ -85,15 +95,5 @@ class Menu: UIViewController, UITableViewDataSource {
             }
         }
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        loadLocalData()
-        tableView.dataSource = self
-
-        // listener for search refresh
-        NotificationCenter.default.addObserver(self, selector:#selector(reloadRandomTableView), name:NSNotification.Name(rawValue: "reloadRandomTableView"), object: nil) 
-    }
 }
